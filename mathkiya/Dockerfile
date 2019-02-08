@@ -1,5 +1,7 @@
-FROM node:8
+FROM node:8-alpine
 WORKDIR /usr/app/
+COPY package.json .
 RUN npm install
+COPY . .
 EXPOSE 8001
-CMD [ "npm", "start" ]
+ENTRYPOINT [ "npm", "start" ]

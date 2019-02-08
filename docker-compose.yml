@@ -8,19 +8,10 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ./mathkiya/:/usr/app/
-
-    # this is just to say that this service needs some other service to work. 
-    # depends_on:
-      # - mongo
-
+      - ./mathkiya/src:/usr/app/src
+      
   mongo:
     image: mongo
     restart: always
-    volumes:
-       - db-data:/var/lib/mongodb/data
     expose:
       - 27017
-
-volumes:
-  db-data:
